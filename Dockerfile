@@ -1,14 +1,13 @@
-# The line below states we will base our new image on the Latest Official Ubuntu 
-FROM ubuntu:latest
-#
-# Update the image to the latest packages
-RUN apt-get update && apt-get upgrade -y
-#
-# Install NGINX to test.
-RUN apt-get install nginx -y
-#
-# Expose port 80
-EXPOSE 80
-#
-# Last is the actual command to start up NGINX within our Container
-CMD ["nginx", "-g", "daemon off;"]
+FROM node:8
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app/
+RUN npm install --silent
+COPY . /usr/src/app
+EXPOSE 3000
+
+ENV PORT 3000
+
+CMD [ "npm", "start" ]

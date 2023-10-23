@@ -9,7 +9,7 @@ steps:
     type: git-clone
     stage: checkout
     repo: 'codefreshdemo/cf-example-build-and-push'
-    revision: 'master'
+    revision: 'main'
     git: github
   build_my_app:
     title: Building Node.Js Docker Image

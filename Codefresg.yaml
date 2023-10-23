@@ -1,0 +1,11 @@
+version: "1.0"
+stages:
+  - checkout
+steps:
+  main_clone:
+    title: Cloning main repository...
+    type: git-clone
+    stage: checkout
+    repo: "codefreshdemo/cf-example-build-and-push"
+    revision: "master"
+    git: github

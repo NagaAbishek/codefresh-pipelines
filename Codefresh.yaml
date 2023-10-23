@@ -13,7 +13,7 @@ steps:
     title: Building Docker Image
     type: build
     stage: build
-    image_name: 'NagaAbishek/codefresh-pipelines'
+    image_name: 'nagaabishek/codefresh-pipelines'
     working_directory: {{clone}}
     tag: 'master'
     dockerfile: Dockerfile

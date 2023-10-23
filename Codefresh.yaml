@@ -5,18 +5,20 @@ stages:
 - push
 steps:
   main_clone:
-    title: Cloning main repository...
-    type: git-clone
-    stage: checkout
-    repo: 'NagaAbishek/codefresh-pipelines'
-    revision: 'master'
-    git: github
+    title: "Cloning repository"
+    type: "git-clone"
+    repo: "NagaAbishek/codefresh-pipelines"
+    # CF_BRANCH value is auto set when pipeline is triggered
+    # Learn more at codefresh.io/docs/docs/codefresh-yaml/variables/
+    revision: "${{CF_BRANCH}}"
+    git: "github"
+    stage: "clone"
   build_my_app:
     title: Building Docker Image
     type: build
     stage: build
     image_name: codefresh-pipelines
-    working_directory: './'
+    working_directory: '.'
     tag: 'main'
     dockerfile: Dockerfile
   push_to_my_registry:

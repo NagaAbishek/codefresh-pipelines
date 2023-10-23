@@ -18,3 +18,4 @@ steps:
     working_directory: {{clone}}
     tag: 'master'
     dockerfile: Dockerfile
+    

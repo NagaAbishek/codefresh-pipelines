@@ -15,7 +15,7 @@ steps:
     type: build
     stage: build
     image_name: 'nagaabishek/codefresh-image_app'
-    working_directory: '.'
-    tag: 'master'
+    working_directory: './'
+    tag: 'main'
     dockerfile: Dockerfile
     

@@ -2,10 +2,10 @@ version: '1.0'
 stages:
 - checkout
 steps:
-  main_clone:
+  clone:
     title: Cloning main repository...
     type: git-clone
     stage: checkout
     repo: 'NagaAbishek/codefresh-pipelines'
-    revision: 'master'
+    revision: 'main'
     git: github

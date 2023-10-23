@@ -8,7 +8,7 @@ steps:
     title: Cloning main repository...
     type: git-clone
     stage: checkout
-    repo: 'github.com/NagaAbishek/codefresh-pipelines'
+    repo: 'NagaAbishek/codefresh-pipelines'
     revision: 'master'
     git: github
   build_my_app:

@@ -1,0 +1,20 @@
+version: '1.0'
+stages:
+- checkout
+- build
+steps:
+  clone:
+    title: Cloning main repository...
+    type: git-clone
+    stage: checkout
+    repo: 'NagaAbishek/codefresh-pipelines'
+    revision: 'main'
+    git: github
+  build_my_app:
+    title: Building Docker Image
+    type: build
+    stage: build
+    image_name: 'nagaabishek/codefresh-pipelines'
+    working_directory: {{clone}}
+    tag: 'master'
+    dockerfile: Dockerfile

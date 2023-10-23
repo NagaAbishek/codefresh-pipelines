@@ -17,7 +17,7 @@ steps:
     stage: build
     image_name: codefresh-pipelines
     working_directory: '.'
-    tag: 'main'
+    tag: 'v1.0.0'
     dockerfile: Dockerfile
   push_to_my_registry:
     stage: 'push'

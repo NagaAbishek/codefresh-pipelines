@@ -1,15 +1,13 @@
-FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
-COPY pom.xml /tmp/
-RUN mvn -B dependency:go-offline -f /tmp/pom.xml -s /usr/share/maven/ref/settings-docker.xml
-COPY src /tmp/src/
-WORKDIR /tmp/
-RUN mvn -B -s /usr/share/maven/ref/settings-docker.xml package
+FROM node:8
 
-FROM java:8-jre-alpine
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-EXPOSE 8080
+COPY package.json /usr/src/app/
+RUN npm install --silent
+COPY . /usr/src/app
+EXPOSE 3000
 
-RUN mkdir /app
-COPY --from=MAVEN_TOOL_CHAIN /tmp/target/*.jar /app/spring-boot-application.jar
+ENV PORT 3000
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app/spring-boot-application.jar"]
+CMD [ "npm", "start" ]

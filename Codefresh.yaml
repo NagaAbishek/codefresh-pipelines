@@ -10,7 +10,7 @@ steps:
     repo: "NagaAbishek/codefresh-pipelines"
     # CF_BRANCH value is auto set when pipeline is triggered
     # Learn more at codefresh.io/docs/docs/codefresh-yaml/variables/
-    revision: "${{CF_BRANCH}}"
+    revision: "master"
     git: "github"
     stage: "clone"
   build_my_app:

@@ -1,6 +1,7 @@
 version: '1.0'
 stages:
 - checkout
+- build
 steps:
   clone:
     title: Cloning main repository...

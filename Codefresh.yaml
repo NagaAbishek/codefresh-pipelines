@@ -9,7 +9,7 @@ steps:
     type: git-clone
     stage: checkout
     repo: 'github.com/NagaAbishek/codefresh-pipelines'
-    revision: 'main'
+    revision: 'master'
     git: github
   build_my_app:
     title: Building Docker Image

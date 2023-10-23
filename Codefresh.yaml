@@ -9,13 +9,13 @@ steps:
     type: git-clone
     stage: checkout
     repo: 'codefreshdemo/cf-example-build-and-push'
-    revision: 'main'
+    revision: 'master'
     git: github
   build_my_app:
-    title: Building Docker Image
+    title: Building Node.Js Docker Image
     type: build
     stage: build
-    image_name: docker Codefresh Image
+    image_name: my-node-js-app
     working_directory: '.'
     tag: 'master'
     dockerfile: Dockerfile
@@ -26,4 +26,4 @@ steps:
     candidate: ${{build_my_app}}
     tag: 'v1.0.0'
     registry: dockerhub
-    image_name: kkapelon/docker Codefresh Image
+    image_name: kkapelon/my-node-js-app
